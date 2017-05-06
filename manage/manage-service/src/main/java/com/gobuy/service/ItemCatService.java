@@ -1,6 +1,6 @@
 package com.gobuy.service;
 
-import com.gobuy.pojo.TbItemCat;
+import com.gobuy.pojo.EUTreeNode;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface ItemCatService {
 
-    public List<TbItemCat> getItemCatList(Long parentId) throws Exception;
+    public List<EUTreeNode> getItemCatList(Long parentId) throws Exception;
 }

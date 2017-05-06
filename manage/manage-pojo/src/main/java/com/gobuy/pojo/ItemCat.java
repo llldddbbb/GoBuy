@@ -1,8 +1,18 @@
 package com.gobuy.pojo;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
-public class TbContentCategory {
+/**
+ * Created by ldb on 2017/5/6.
+ */
+@Table(name = "tb_item_cat")
+public class ItemCat {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long parent_id;
@@ -18,6 +28,7 @@ public class TbContentCategory {
     private Date created;
 
     private Date updated;
+
 
     public Long getId() {
         return id;
@@ -78,6 +89,7 @@ public class TbContentCategory {
     public Date getUpdated() {
         return updated;
     }
+
 
     public void setUpdated(Date updated) {
         this.updated = updated;

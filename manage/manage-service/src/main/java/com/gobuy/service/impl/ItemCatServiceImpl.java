@@ -1,12 +1,13 @@
 package com.gobuy.service.impl;
 
-import com.gobuy.mapper.TbItemCatMapper;
-import com.gobuy.pojo.TbItemCat;
-import com.gobuy.pojo.TbItemCatExample;
+import com.gobuy.mapper.ItemCatMapper;
+import com.gobuy.pojo.EUTreeNode;
+import com.gobuy.pojo.ItemCat;
 import com.gobuy.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,18 +17,26 @@ import java.util.List;
 public class ItemCatServiceImpl implements ItemCatService{
 
     @Autowired
-    private TbItemCatMapper itemCatMapper;
+    private ItemCatMapper itemCatMapper;
 
     @Override
-    public List<TbItemCat> getItemCatList(Long parentId) throws Exception {
+    public List<EUTreeNode> getItemCatList(Long parentId) throws Exception {
+        List<EUTreeNode> resultList=new ArrayList<>();
 
-        TbItemCatExample example = new TbItemCatExample();
-        //设置查询条件
-        TbItemCatExample.Criteria criteria = example.createCriteria();
+        ItemCat example=new ItemCat();
         //根据parentid查询子节点
-        criteria.andParent_idEqualTo(parentId);
+        example.setParent_id(parentId);
         //返回子节点列表
-        List<TbItemCat> list = itemCatMapper.selectByExample(example);
-        return list;
+        List<ItemCat> list = itemCatMapper.selectByExample(example);
+
+        for (ItemCat itemCat : list) {
+            EUTreeNode node=new EUTreeNode();
+            node.setId(itemCat.getId());
+            node.setText(itemCat.getName());
+            //如果是父节点的话就设置成关闭状态，如果是叶子节点就是open状态
+            node.setState(itemCat.getIs_parent()?"closed":"open");
+            resultList.add(node);
+        }
+        return resultList;
     }
 }
