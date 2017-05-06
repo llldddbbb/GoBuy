@@ -37,3 +37,16 @@ hs_err_pid*
 *.iml
 out
 gen
+common/src/
+common/target/
+manage/manage-dao/src/main/resources/
+manage/manage-dao/src/test/
+manage/manage-dao/target/
+manage/manage-pojo/src/main/resources/
+manage/manage-pojo/src/test/
+manage/manage-pojo/target/
+manage/manage-service/src/main/resources/
+manage/manage-service/src/test/
+manage/manage-service/target/
+manage/manage-web/src/test/
+manage/manage-web/target/

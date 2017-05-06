@@ -19,7 +19,7 @@ Date.prototype.format = function(format){
     return format; 
 };
 
-var TT = TAOTAO = {
+var TT = GoBuy = {
 	// 编辑器参数
 	kingEditorParams : {
 		//指定上传文件参数名称
