@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface ItemCatService {
 
-    public List<EUTreeNode> getItemCatList(Long parentId) throws Exception;
+    List<EUTreeNode> getItemCatList(Long parentId) throws Exception;
 }

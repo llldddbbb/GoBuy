@@ -37,7 +37,6 @@ hs_err_pid*
 *.iml
 out
 gen
-common/src/
 common/target/
 manage/manage-dao/src/main/resources/
 manage/manage-dao/src/test/

@@ -27,7 +27,7 @@ public class ItemCatServiceImpl implements ItemCatService{
         //根据parentid查询子节点
         example.setParent_id(parentId);
         //返回子节点列表
-        List<ItemCat> list = itemCatMapper.selectByExample(example);
+        List<ItemCat> list = itemCatMapper.select(example);
 
         for (ItemCat itemCat : list) {
             EUTreeNode node=new EUTreeNode();
