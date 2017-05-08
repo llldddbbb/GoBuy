@@ -1,8 +1,8 @@
 package com.gobuy.service.impl;
 
 import com.gobuy.service.PictureService;
-import com.gobuy.util.FtpUtil;
-import com.gobuy.util.IDUtils;
+import com.gobuy.common.util.FtpUtil;
+import com.gobuy.common.util.IDUtils;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

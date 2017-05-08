@@ -8,12 +8,12 @@
             <th data-options="field:'title',width:200">商品标题</th>
             <th data-options="field:'cid',width:100">叶子类目</th>
             <th data-options="field:'sellPoint',width:100">卖点</th>
-            <th data-options="field:'price',width:70,align:'right',formatter:TAOTAO.formatPrice">价格</th>
+            <th data-options="field:'price',width:70,align:'right',formatter:GoBuy.formatPrice">价格</th>
             <th data-options="field:'num',width:70,align:'right'">库存数量</th>
             <th data-options="field:'barcode',width:100">条形码</th>
-            <th data-options="field:'status',width:60,align:'center',formatter:TAOTAO.formatItemStatus">状态</th>
-            <th data-options="field:'created',width:130,align:'center',formatter:TAOTAO.formatDateTime">创建日期</th>
-            <th data-options="field:'updated',width:130,align:'center',formatter:TAOTAO.formatDateTime">更新日期</th>
+            <th data-options="field:'status',width:60,align:'center',formatter:GoBuy.formatItemStatus">状态</th>
+            <th data-options="field:'created',width:130,align:'center',formatter:GoBuy.formatDateTime">创建日期</th>
+            <th data-options="field:'updated',width:130,align:'center',formatter:GoBuy.formatDateTime">更新日期</th>
         </tr>
     </thead>
 </table>
@@ -56,7 +56,7 @@
         		onLoad :function(){
         			//回显数据
         			var data = $("#itemList").datagrid("getSelections")[0];
-        			data.priceView = TAOTAO.formatPrice(data.price);
+        			data.priceView = GoBuy.formatPrice(data.price);
         			$("#itemeEditForm").form("load",data);
         			
         			// 加载商品描述
@@ -95,11 +95,11 @@
         				}
         			});
         			
-        			TAOTAO.init({
+        			GoBuy.init({
         				"pics" : data.image,
         				"cid" : data.cid,
         				fun:function(node){
-        					TAOTAO.changeItemParam(node, "itemeEditForm");
+        					GoBuy.changeItemParam(node, "itemeEditForm");
         				}
         			});
         		}

@@ -1,4 +1,4 @@
-package com.gobuy.util;
+package com.gobuy.common.util;
 
 import java.util.Random;
 
