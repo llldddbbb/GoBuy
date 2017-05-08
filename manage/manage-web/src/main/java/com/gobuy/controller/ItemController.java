@@ -22,8 +22,8 @@ public class ItemController {
 
     @RequestMapping(value = "/item/save",method = RequestMethod.POST)
     @ResponseBody
-    public GoBuyResult addItem(Item item){
-        return itemService.addItem(item);
+    public GoBuyResult addItem(Item item,String desc){
+        return itemService.addItem(item,desc);
     }
 
     @RequestMapping(value = "/item/list",method = RequestMethod.GET)

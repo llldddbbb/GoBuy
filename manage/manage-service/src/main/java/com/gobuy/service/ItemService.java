@@ -11,7 +11,7 @@ import com.gobuy.pojo.Item;
  */
 public interface ItemService {
 
-    GoBuyResult addItem(Item item);
+    GoBuyResult addItem(Item item,String desc);
 
     EUDateGridResult getItemList(int page,int rows);
 }

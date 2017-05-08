@@ -1,8 +1,15 @@
 package com.gobuy.pojo;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Table(name = "tb_item_desc")
 public class ItemDesc {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long item_id;
 
     private Date created;
