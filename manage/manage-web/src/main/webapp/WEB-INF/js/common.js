@@ -193,7 +193,7 @@ var TT = GoBuy = {
     	$.getJSON("/item/param/query/itemcatid/" + node.id,function(data){
 			  if(data.status == 200 && data.data){
 				 $("#"+formId+" .params").show();
-				 var paramData = JSON.parse(data.data.paramData);
+				 var paramData = JSON.parse(data.data.param_data);
 				 var html = "<ul>";
 				 for(var i in paramData){
 					 var pd = paramData[i];
