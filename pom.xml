@@ -8,6 +8,7 @@
     <artifactId>GoBuy-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <packaging>pom</packaging>
 
     <!-- 集中定义依赖版本号 -->
