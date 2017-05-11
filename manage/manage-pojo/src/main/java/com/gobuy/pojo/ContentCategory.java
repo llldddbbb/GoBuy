@@ -1,7 +1,6 @@
 package com.gobuy.pojo;
 
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
@@ -9,7 +8,7 @@ import java.util.Date;
 @Table(name="tb_content_category")
 public class ContentCategory {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "JDBC")
     private Long id;
 
     private Long parent_id;

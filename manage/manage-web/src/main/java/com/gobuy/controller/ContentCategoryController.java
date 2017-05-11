@@ -1,6 +1,7 @@
 package com.gobuy.controller;
 
 import com.gobuy.common.pojo.EUTreeNode;
+import com.gobuy.common.pojo.GoBuyResult;
 import com.gobuy.common.util.JsonUtils;
 import com.gobuy.service.ContentCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,13 @@ public class ContentCategoryController {
         List<EUTreeNode> contentCategoryList = contentCateGoryService.getContentCategoryList(parentId);
         return JsonUtils.objectToJson(contentCategoryList);
     }
+
+    @RequestMapping("/create")
+    @ResponseBody
+    private GoBuyResult insertContentCategory(long parentId,String name){
+        return contentCateGoryService.insertContentCategory(parentId,name);
+    }
+
+
 
 }

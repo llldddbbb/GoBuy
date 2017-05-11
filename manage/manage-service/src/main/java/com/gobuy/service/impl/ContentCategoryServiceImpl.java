@@ -1,14 +1,16 @@
 package com.gobuy.service.impl;
 
-        import com.gobuy.common.pojo.EUTreeNode;
-        import com.gobuy.mapper.ContentCategoryMapper;
-        import com.gobuy.pojo.ContentCategory;
-        import com.gobuy.service.ContentCategoryService;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Service;
+import com.gobuy.common.pojo.EUTreeNode;
+import com.gobuy.common.pojo.GoBuyResult;
+import com.gobuy.mapper.ContentCategoryMapper;
+import com.gobuy.pojo.ContentCategory;
+import com.gobuy.service.ContentCategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by ldb on 2017/5/11.
@@ -34,4 +36,27 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
         }
         return resultList;
     }
+
+    @Override
+    public GoBuyResult insertContentCategory(long parentId, String name) {
+        ContentCategory contentCategory=new ContentCategory();
+        contentCategory.setParent_id(parentId);
+        contentCategory.setName(name);
+        contentCategory.setIs_parent(false);
+        //状态1为正常，状态2为删除
+        contentCategory.setStatus(1);
+        contentCategory.setSort_order(1);
+        contentCategory.setCreated(new Date());
+        contentCategory.setUpdated(new Date());
+        contentCategoryMapper.insert(contentCategory);
+        //查看父节点的is_parent是否为true，如果是false则修改为ture
+        ContentCategory parentCat=contentCategoryMapper.selectByPrimaryKey(parentId);
+        if(!parentCat.getIs_parent()){
+            parentCat.setIs_parent(true);
+            contentCategoryMapper.updateByPrimaryKey(parentCat);
+        }
+        return GoBuyResult.ok(contentCategory);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package com.gobuy.service;
 
 import com.gobuy.common.pojo.EUTreeNode;
+import com.gobuy.common.pojo.GoBuyResult;
 
 import java.util.List;
 
@@ -10,4 +11,7 @@ import java.util.List;
 public interface ContentCategoryService {
 
     List<EUTreeNode> getContentCategoryList(long parentId);
+
+    GoBuyResult insertContentCategory(long parentId,String name);
+
 }
