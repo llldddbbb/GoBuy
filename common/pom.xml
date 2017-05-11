@@ -11,7 +11,7 @@
 
     <groupId>com.ldb</groupId>
     <artifactId>GoBuy-common</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <!-- 添加依赖的jar包 -->

@@ -1,4 +1,4 @@
-package com.gobuy.pojo;
+package com.gobuy.common.pojo;
 
 /**
  * Created by ldb on 2017/5/6.

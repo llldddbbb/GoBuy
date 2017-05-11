@@ -1,7 +1,7 @@
 package com.gobuy.service.impl;
 
 import com.gobuy.mapper.ItemCatMapper;
-import com.gobuy.pojo.EUTreeNode;
+import com.gobuy.common.pojo.EUTreeNode;
 import com.gobuy.pojo.ItemCat;
 import com.gobuy.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 /**
  * Created by ldb on 2017/5/6.

@@ -1,6 +1,6 @@
 package com.gobuy.controller;
 
-import com.gobuy.pojo.EUTreeNode;
+import com.gobuy.common.pojo.EUTreeNode;
 import com.gobuy.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,6 @@
 package com.gobuy.service;
 
-import com.gobuy.pojo.EUTreeNode;
+import com.gobuy.common.pojo.EUTreeNode;
 
 import java.util.List;
 
