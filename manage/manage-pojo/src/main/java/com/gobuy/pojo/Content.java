@@ -1,8 +1,11 @@
 package com.gobuy.pojo;
 
+import javax.persistence.Table;
 import java.util.Date;
 
+@Table(name="tb_content")
 public class Content {
+
     private Long id;
 
     private Long category_id;
