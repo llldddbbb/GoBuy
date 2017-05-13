@@ -1,11 +1,16 @@
 package com.gobuy.rest.service.impl;
 
+import com.gobuy.common.util.JsonUtils;
 import com.gobuy.mapper.ItemCatMapper;
+import com.gobuy.pojo.Content;
 import com.gobuy.pojo.ItemCat;
+import com.gobuy.rest.dao.JedisClient;
 import com.gobuy.rest.pojo.CatNode;
 import com.gobuy.rest.pojo.CatResult;
 import com.gobuy.rest.service.ItemCatService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,10 +25,35 @@ public class ItemCatServiceImpl implements ItemCatService {
     @Autowired
     private ItemCatMapper itemCatMapper;
 
+    @Autowired
+    private JedisClient jedisClient;
+
+    @Value("${INDEX_ITEM_CAT_REDIS_KEY}")
+    private String INDEX_ITEM_CAT_REDIS_KEY;
+
     @Override
     public CatResult getItemCatList() {
+        //从缓存中读取数据
+        try {
+            String redisResult=jedisClient.hget(INDEX_ITEM_CAT_REDIS_KEY,INDEX_ITEM_CAT_REDIS_KEY);
+            if(!StringUtils.isBlank(redisResult)){
+                CatResult catResult= JsonUtils.jsonToPojo(redisResult,CatResult.class);
+                return catResult;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         CatResult catResult=new CatResult();
         catResult.setData(getCatList(0));
+
+        //向缓存中添加内容
+        try {
+            String str= JsonUtils.objectToJson(catResult);
+            jedisClient.hset(INDEX_ITEM_CAT_REDIS_KEY,INDEX_ITEM_CAT_REDIS_KEY,str);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return catResult;
     }
 
