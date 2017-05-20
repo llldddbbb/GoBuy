@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gobuy.search.mapper.ItemSearchMapper" >
+
+    <select id="getItemList" resultType="com.gobuy.search.pojo.Item">
+        SELECT t1.id,
+        t1.title,
+        t1.sell_point,
+        t1.price,
+        t1.image,
+        t2.`name` category_name,
+        t3.item_desc
+        FROM
+            tb_item t1
+        LEFT JOIN tb_item_cat t2 ON t1.cid = t2.id
+        LEFT JOIN tb_item_desc t3 ON t1.id = t3.item_id
+    </select>
+
+</mapper>
