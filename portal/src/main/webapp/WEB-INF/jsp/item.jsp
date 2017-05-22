@@ -48,7 +48,7 @@
 	<div id="product-intro" >
 		<div id="name">
 			<h1>${item.title }</h1>
-			<strong>${item.sellPoint}</strong>
+			<strong>${item.sell_point}</strong>
 		</div><!--name end-->
 		<script type='text/javascript'>var warestatus = 1; var eleSkuIdKey =[];</script>
 		<div class="clearfix" clstag="shangpin|keycount|product|share">
