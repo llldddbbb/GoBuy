@@ -1,6 +1,7 @@
 package com.gobuy.sso.service.impl;
 
 import com.gobuy.common.pojo.GoBuyResult;
+import com.gobuy.common.util.CookieUtils;
 import com.gobuy.common.util.JsonUtils;
 import com.gobuy.mapper.UserMapper;
 import com.gobuy.pojo.User;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -67,7 +70,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public GoBuyResult login(String userName, String password) {
+    public GoBuyResult login(String userName, String password, HttpServletRequest request,HttpServletResponse response) {
         User example=new User();
         example.setUsername(userName);
         List<User> list = userMapper.select(example);
@@ -89,6 +92,10 @@ public class UserServiceImpl implements UserService {
         jedisClient.set(REDIS_USER_SESSION_KEY+":"+token, JsonUtils.objectToJson(user));
         //设置session过期时间
         jedisClient.expire(REDIS_USER_SESSION_KEY+":"+token,SSO_SESSION_EXPIRE);
+
+        //添加Cookie逻辑，关闭Cookie则失效
+        CookieUtils.setCookie(request,response,"GoBuy_TOKEN",token);
+
         return GoBuyResult.ok(token);
     }
 

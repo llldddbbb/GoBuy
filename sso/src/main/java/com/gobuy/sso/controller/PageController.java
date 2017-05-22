@@ -7,11 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by ldb on 2017/5/22.
  */
 @Controller
-@RequestMapping("/page")
+@RequestMapping("/user")
 public class PageController {
 
-    @RequestMapping("/register")
+    @RequestMapping("showRegister")
     public String showRegister(){
         return "register";
+    }
+
+    @RequestMapping("/showLogin")
+    public String showLogin(){
+        return "login";
     }
 }

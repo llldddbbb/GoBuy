@@ -10,6 +10,9 @@ import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by ldb on 2017/5/22.
  */
@@ -69,9 +72,9 @@ public class UserController {
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
-    public GoBuyResult login(String username,String password){
+    public GoBuyResult login(String username, String password, HttpServletRequest request, HttpServletResponse response){
         try{
-            return userService.login(username,password);
+            return userService.login(username,password,request,response);
         }catch (Exception e){
             e.printStackTrace();
             return GoBuyResult.build(500, ExceptionUtil.getStackTrace(e));
