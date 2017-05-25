@@ -1,11 +1,17 @@
 package com.gobuy.pojo;
 
+import javax.persistence.*;
+
+@Table(name = "tb_order_item")
 public class OrderItem {
+    @Id
     private String id;
 
-    private String item_id;
+    @Column(name = "item_id")
+    private String itemId;
 
-    private String order_id;
+    @Column(name = "order_id")
+    private String orderId;
 
     private Integer num;
 
@@ -13,32 +19,34 @@ public class OrderItem {
 
     private Long price;
 
-    private Long total_fee;
+    @Column(name = "total_fee")
+    private Long totalFee;
 
-    private String pic_path;
+    @Column(name = "pic_path")
+    private String picPath;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
-    public String getItem_id() {
-        return item_id;
+    public String getItemId() {
+        return itemId;
     }
 
-    public void setItem_id(String item_id) {
-        this.item_id = item_id == null ? null : item_id.trim();
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
-    public String getOrder_id() {
-        return order_id;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(String order_id) {
-        this.order_id = order_id == null ? null : order_id.trim();
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public Integer getNum() {
@@ -54,7 +62,7 @@ public class OrderItem {
     }
 
     public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
+        this.title = title;
     }
 
     public Long getPrice() {
@@ -65,19 +73,19 @@ public class OrderItem {
         this.price = price;
     }
 
-    public Long getTotal_fee() {
-        return total_fee;
+    public Long getTotalFee() {
+        return totalFee;
     }
 
-    public void setTotal_fee(Long total_fee) {
-        this.total_fee = total_fee;
+    public void setTotalFee(Long totalFee) {
+        this.totalFee = totalFee;
     }
 
-    public String getPic_path() {
-        return pic_path;
+    public String getPicPath() {
+        return picPath;
     }
 
-    public void setPic_path(String pic_path) {
-        this.pic_path = pic_path == null ? null : pic_path.trim();
+    public void setPicPath(String picPath) {
+        this.picPath = picPath;
     }
 }

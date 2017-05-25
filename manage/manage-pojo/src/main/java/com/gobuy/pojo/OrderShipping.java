@@ -1,100 +1,112 @@
 package com.gobuy.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Table(name = "tb_order_shipping")
 public class OrderShipping {
-    private String order_id;
+    @Column(name = "order_id")
+    private String orderId;
 
-    private String receiver_name;
+    @Column(name = "receiver_name")
+    private String receiverName;
 
-    private String receiver_phone;
+    @Column(name = "receiver_phone")
+    private String receiverPhone;
 
-    private String receiver_mobile;
+    @Column(name = "receiver_mobile")
+    private String receiverMobile;
 
-    private String receiver_state;
+    @Column(name = "receiver_state")
+    private String receiverState;
 
-    private String receiver_city;
+    @Column(name = "receiver_city")
+    private String receiverCity;
 
-    private String receiver_district;
+    @Column(name = "receiver_district")
+    private String receiverDistrict;
 
-    private String receiver_address;
+    @Column(name = "receiver_address")
+    private String receiverAddress;
 
-    private String receiver_zip;
+    @Column(name = "receiver_zip")
+    private String receiverZip;
 
     private Date created;
 
     private Date updated;
 
-    public String getOrder_id() {
-        return order_id;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(String order_id) {
-        this.order_id = order_id == null ? null : order_id.trim();
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
-    public String getReceiver_name() {
-        return receiver_name;
+    public String getReceiverName() {
+        return receiverName;
     }
 
-    public void setReceiver_name(String receiver_name) {
-        this.receiver_name = receiver_name == null ? null : receiver_name.trim();
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
     }
 
-    public String getReceiver_phone() {
-        return receiver_phone;
+    public String getReceiverPhone() {
+        return receiverPhone;
     }
 
-    public void setReceiver_phone(String receiver_phone) {
-        this.receiver_phone = receiver_phone == null ? null : receiver_phone.trim();
+    public void setReceiverPhone(String receiverPhone) {
+        this.receiverPhone = receiverPhone;
     }
 
-    public String getReceiver_mobile() {
-        return receiver_mobile;
+    public String getReceiverMobile() {
+        return receiverMobile;
     }
 
-    public void setReceiver_mobile(String receiver_mobile) {
-        this.receiver_mobile = receiver_mobile == null ? null : receiver_mobile.trim();
+    public void setReceiverMobile(String receiverMobile) {
+        this.receiverMobile = receiverMobile;
     }
 
-    public String getReceiver_state() {
-        return receiver_state;
+    public String getReceiverState() {
+        return receiverState;
     }
 
-    public void setReceiver_state(String receiver_state) {
-        this.receiver_state = receiver_state == null ? null : receiver_state.trim();
+    public void setReceiverState(String receiverState) {
+        this.receiverState = receiverState;
     }
 
-    public String getReceiver_city() {
-        return receiver_city;
+    public String getReceiverCity() {
+        return receiverCity;
     }
 
-    public void setReceiver_city(String receiver_city) {
-        this.receiver_city = receiver_city == null ? null : receiver_city.trim();
+    public void setReceiverCity(String receiverCity) {
+        this.receiverCity = receiverCity;
     }
 
-    public String getReceiver_district() {
-        return receiver_district;
+    public String getReceiverDistrict() {
+        return receiverDistrict;
     }
 
-    public void setReceiver_district(String receiver_district) {
-        this.receiver_district = receiver_district == null ? null : receiver_district.trim();
+    public void setReceiverDistrict(String receiverDistrict) {
+        this.receiverDistrict = receiverDistrict;
     }
 
-    public String getReceiver_address() {
-        return receiver_address;
+    public String getReceiverAddress() {
+        return receiverAddress;
     }
 
-    public void setReceiver_address(String receiver_address) {
-        this.receiver_address = receiver_address == null ? null : receiver_address.trim();
+    public void setReceiverAddress(String receiverAddress) {
+        this.receiverAddress = receiverAddress;
     }
 
-    public String getReceiver_zip() {
-        return receiver_zip;
+    public String getReceiverZip() {
+        return receiverZip;
     }
 
-    public void setReceiver_zip(String receiver_zip) {
-        this.receiver_zip = receiver_zip == null ? null : receiver_zip.trim();
+    public void setReceiverZip(String receiverZip) {
+        this.receiverZip = receiverZip;
     }
 
     public Date getCreated() {
