@@ -25,7 +25,7 @@
 <!--shortcut end-->
 
 <div class="w w1 header clearfix">
-    <div id="logo"><a href="/"><img src="/images/taotao-logo.gif" alt="淘淘商城"></a></div>
+    <div id="logo"><a href="/"><img src="/images/gobuy-logo.jpg" alt="淘淘商城"></a></div>
 </div>
 
 <form id="orderForm" class="hide" action="/order/create.html" method="post">
@@ -79,13 +79,13 @@
 						<b></b>
 						<div class="user-name">
 							<div class="fl">
-								<strong limit="4">入云龙</strong>&nbsp;&nbsp;收
+								<strong limit="4">刘东宝</strong>&nbsp;&nbsp;收
 							</div>
-							<div class="fr">158****8888</div>
+							<div class="fr">136****8888</div>
 							<div class="clr"></div>
 						</div>
-						<div class="mt10" limit="15">北京 昌平区 五环外六环里</div>
-						<div class="adr-m" limit="30">西三旗 xxxxxxxxx</div>
+						<div class="mt10" limit="15">广东省 佛山市 狮山镇</div>
+						<div class="adr-m" limit="30">华南师范大学 xxxxxxxxx</div>
 						<div class="op-btns ar">
 							<a href="#none"
 								class="ftx-05 mr10 setdefault-consignee hide"

@@ -14,6 +14,13 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/order/**"/>
+            <bean class="com.gobuy.portal.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
     <!-- 资源映射 -->
     <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>

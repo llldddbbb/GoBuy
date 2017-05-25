@@ -78,7 +78,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 
                 resultList.add(catNode);
                 count++;
-                if(count>14){
+                if(count>=14){
                     break;
                 }
                 //如果是叶子节点

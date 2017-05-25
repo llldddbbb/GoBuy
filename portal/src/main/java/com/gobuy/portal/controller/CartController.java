@@ -1,6 +1,5 @@
 package com.gobuy.portal.controller;
 
-import com.gobuy.common.pojo.GoBuyResult;
 import com.gobuy.portal.pojo.CartItem;
 import com.gobuy.portal.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,9 +24,9 @@ public class CartController {
     private CartService cartService;
 
     @RequestMapping("/add/{itemId}")
-    @ResponseBody
-    public GoBuyResult addCartItem(@PathVariable long itemId, @RequestParam(defaultValue = "1") Integer num, HttpServletResponse response, HttpServletRequest request){
-        return cartService.addCartService(itemId,num,request,response);
+    public String addCartItem(@PathVariable long itemId, @RequestParam(defaultValue = "1") Integer num, HttpServletResponse response, HttpServletRequest request){
+        cartService.addCartService(itemId,num,request,response);
+        return "cartSuccess";
     }
 
     @RequestMapping("/cart")

@@ -10,6 +10,7 @@ public class CartItem {
     private long price;
     private String image;
     private Integer num;
+    private String[] images;
 
     public long getId() {
         return id;
@@ -59,5 +60,7 @@ public class CartItem {
         return null;
     }
 
-
+    public void setImages(String[] images) {
+        this.images = images;
+    }
 }
